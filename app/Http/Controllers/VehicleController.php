@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Vehicle;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -17,7 +18,14 @@ class VehicleController extends Controller
     {
         //
 
-        return 'I am in Index';
+        //return 'I am in Index';
+
+        $vehicles = Vehicle::all();
+
+        return response()->json(['data' => $vehicles], 200);
+
+
+
     }
 
 }
