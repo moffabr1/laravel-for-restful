@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateMakerRequest;
 use App\Maker;
 use Illuminate\Http\Request;
 
@@ -32,9 +33,18 @@ class MakerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateMakerRequest $request)
     {
         //
+
+        $values = $request->only(['name', 'phone']);
+
+        //return 'right';
+
+        Maker::create($values);
+
+        return response()->json(['Message' => 'Maker correctly added'], 201);
+
     }
 
     /**
