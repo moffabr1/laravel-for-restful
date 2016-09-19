@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateMakerRequest extends FormRequest
+class CreateVehicleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +27,10 @@ class CreateMakerRequest extends FormRequest
         [
             //
 
-            'name' => 'required',
-            'phone' => 'required'
+            'color' => 'required',
+            'power' => 'required',
+            'capacity' => 'required',
+            'speed' => 'required'
 
         ];
     }
@@ -37,6 +39,5 @@ class CreateMakerRequest extends FormRequest
     {
         return response()->json(['message' => $errors, 'code' => 422], 422);
     }
-
 
 }
